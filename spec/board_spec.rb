@@ -31,7 +31,7 @@ describe Board do
     end
 
     it 'returns false when column is full' do
-      6.times { broad.drop_disc(0, 'X') }
+      6.times { board.drop_disc(0, 'X') }
       expect(board.drop_disc(0, 'X')).to be false
     end
   end
