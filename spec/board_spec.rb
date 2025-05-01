@@ -5,7 +5,7 @@ require_relative '../lib/board'
 
 RSpec.describe Board do
   let(:empty_cell) { Board::EMPTY }
-  subject(:board) { Board.new }
+  subject(:board) { described_class.new }
 
   describe '#initialize' do
     it 'creates a 6 by 7 grid with all cells are empty' do
