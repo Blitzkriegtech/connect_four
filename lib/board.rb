@@ -80,6 +80,7 @@ class Board
     end
     
     # (/) slope
+    # start_row and start_col are for naming convention to avoid confusion with row and col in \
     (3...ROWS).each do |start_row|
       (0...COLS - 3).each do |start_col|
         current = @grid[start_row][start_col]
