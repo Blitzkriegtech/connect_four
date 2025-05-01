@@ -44,7 +44,7 @@ class Game
 
   def display_board
     @board.grid.each do |row|
-      puts row.join('')
+      puts row.join( '|' )
     end
     puts "\n"
   end
