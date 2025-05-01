@@ -35,4 +35,42 @@ describe Board do
       expect(board.drop_disc(0, 'X')).to be false
     end
   end
+
+  describe '#winner?' do
+    it 'detects a vertical win' do
+      4.times { board.drop_disc(0,'X') }
+      expect(board.winner?).to eq('X')
+    end
+
+    it 'detects a horizontal win' do
+      [0, 1, 2, 3].each { |col| board.drop_disc(0, 'O') }
+      expect(board.winner?).to eq('O')
+    end
+
+    it 'detects a diagonal win (positive slope)' do
+      3.times { board.drop_disc(0, 'O') }
+      board.drop_disc(0, 'X')
+      2.times { board.drop_disc(1, 'O') }
+      board.drop_disc(1, 'X')
+      board.drop_disc(2, 'O')
+      board.drop_disc(2, 'X')
+      board.drop_disc(3, 'X')
+      expect(board.winner?).to eq('X')
+    end
+
+    it 'detects a diagonal win (negative slope)' do
+      board.drop_disc(0, 'X')
+      3.times { board.drop_disc(1, 'O') }
+      board.drop_disc(1, 'X')
+      2.times { board.drop_disc(2, 'O') }
+      board.drop_disc(2, 'X')
+      board.drop_disc(3, 'O')
+      board.drop_disc(3, 'X')
+      expect(board.winner?).to eq('X')
+    end
+
+    it 'returns nil when there is no winner' do
+      expect(board.winner?).to be_nil
+    end
+  end
 end
