@@ -3,7 +3,7 @@
 require 'rspec'
 require_relative '../lib/board'
 
-describe Board do
+RSpec.describe Board do
   let(:empty_cell) { Board::EMPTY }
   subject(:board) { Board.new }
 
@@ -59,13 +59,20 @@ describe Board do
     end
 
     it 'detects a diagonal win (negative slope)' do
-      board.drop_disc(0, 'X')
-      3.times { board.drop_disc(1, 'O') }
-      board.drop_disc(1, 'X')
-      2.times { board.drop_disc(2, 'O') }
-      board.drop_disc(2, 'X')
+      board.drop_disc(0, 'X')            # (5,0)
+
+      board.drop_disc(1, 'O')
+      board.drop_disc(1, 'X')            # (4,1)
+    
+      board.drop_disc(2, 'O')
+      board.drop_disc(2, 'O')
+      board.drop_disc(2, 'X')            # (3,2)
+    
       board.drop_disc(3, 'O')
-      board.drop_disc(3, 'X')
+      board.drop_disc(3, 'O')
+      board.drop_disc(3, 'O')
+      board.drop_disc(3, 'X')            # (2,3)
+    
       expect(board.winner?).to eq('X')
     end
 
