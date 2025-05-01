@@ -26,6 +26,10 @@ class Board
     vertical_winner? || horizontal_winner? || diagonal_winner?
   end
 
+  def full?
+    grid[0].all? { |cell| cell != EMPTY }
+  end
+
   private
 
   def vertical_winner?
