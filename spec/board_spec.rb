@@ -64,13 +64,10 @@ RSpec.describe Board do
       board.drop_disc(1, 'O')
       board.drop_disc(1, 'X')            # (4,1)
     
-      board.drop_disc(2, 'O')
-      board.drop_disc(2, 'O')
+      2.times { board.drop_disc(2, 'O') }
       board.drop_disc(2, 'X')            # (3,2)
     
-      board.drop_disc(3, 'O')
-      board.drop_disc(3, 'O')
-      board.drop_disc(3, 'O')
+      3.times { board.drop_disc(3, 'O') }
       board.drop_disc(3, 'X')            # (2,3)
     
       expect(board.winner?).to eq('X')
@@ -78,6 +75,19 @@ RSpec.describe Board do
 
     it 'returns nil when there is no winner' do
       expect(board.winner?).to be_nil
+    end
+  end
+
+  describe '#full?' do
+    it 'return true when all columns are full' do
+      7.times do |col|
+        6.times { board.drop_disc(col, "X") }
+      end
+      expect(board.full?).to be true
+    end
+
+    it 'returns false when there are empty columns' do
+      expect(board.full?).to be false
     end
   end
 end
