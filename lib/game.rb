@@ -53,10 +53,12 @@ class Game
     loop do
       print "Player #{@current_player} please enter a column (0-6): "
       input = gets.chomp
-      column = input.to_i
-      return column if (0..6).cover?(column)
-
-      puts "Invalid column. Please enter a number between 0 and 6."
+      if input =~ /\A[0-6]\z/
+        column = input.to_i
+        return column
+      else
+        puts "Invalid column. Please enter a number between 0 and 6."
+      end
     end
   end
 
