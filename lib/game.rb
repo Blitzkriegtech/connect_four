@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require_relative './board'
+require_relative './how_to_play'
 
 # Game class
 class Game
+  include HowToPlay
   attr_reader :current_player
 
   def initialize(board)
@@ -12,8 +14,26 @@ class Game
     @current_player = @players.first
   end
 
+  def start?
+    puts "#{instructions}"
+    loop do
+      print 'Would you like to start the game (Y/N)?:'
+      input = gets.chomp
+      if input == 'Y' || input == 'y'
+        play
+        break
+      elsif input == 'N' || input == 'n'
+        puts 'Thank you for stopping by, Have a GREAT DAY!'
+        exit
+      else
+        puts "Wrong input!, please input either Y/N. Please try again.\n"
+      end
+    end
+  end
+
   def play
     until game_over?
+      puts 'Player X starts: '
       display_board
       play_turn
       switch_players
