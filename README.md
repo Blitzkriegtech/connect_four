@@ -11,8 +11,6 @@ A simple, text‑based Connect Four game implemented in Ruby. Players alternate 
 3. [Usage](#usage)  
 4. [Game Rules](#game-rules)  
 5. [Testing](#testing)  
-6. [Contributing](#contributing)  
-7. [License](#license)
 
 ---
 
