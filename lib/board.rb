@@ -2,7 +2,7 @@
 
 # board class
 class Board
-  EMPTY = '.'
+  EMPTY = '_'
   ROWS = 6
   COLS = 7
 
