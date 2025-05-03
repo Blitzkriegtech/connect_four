@@ -1,33 +1,35 @@
 # frozen_string_literal: true
 
-def instructions
-  <<-DOC
-    Welcome to CONNECT FOUR!!
+module HowToPlay
+  def instructions
+    <<-DOC
+      Welcome to CONNECT FOUR!!
 
-    The Game:
+      The Game:
 
-    Player 1 has discs marked ('X') while Player 2 has discs marked ('O'), first player to CONNECT FOUR IDENTICAL DISCS:
+      Player 1 has discs marked ('X') while Player 2 has discs marked ('O'), first player to CONNECT FOUR IDENTICAL DISCS:
 
-    a. X X X X
-    
-    b. X
-       X
-       X
-       X
+      a. X X X X
+      
+      b. X
+        X
+        X
+        X
 
-    c. X
-         X
-           X
-             X
+      c. X
+          X
+            X
+              X
 
-    d.       X
-           X  
-         X
-       X
-    of either patterns a-b WINS.
+      d.       X
+            X  
+          X
+        X
+      of either patterns a-b WINS.
 
-    How to place disc:
+      How to place disc:
 
-    Select a column no. from 0-6 to drop a disc.
-  DOC
+      Select a column no. from 0-6 to drop a disc.
+    DOC
+  end
 end
